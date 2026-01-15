@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2563EB;
-            --secondary: #3B82F6;
-            --accent: #60A5FA;
-            --success: #10B981;
-            --warning: #F59E0B;
-            --dark: #FFFFFF;
-            --darker: #F3F4F6;
-            --light: #1F2937;
-            --gray: #D1D5DB;
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --gradient: linear-gradient(135deg, #2563EB, #3B82F6);
+            --primary: #6C63FF;
+            --secondary: #36D1DC;
+            --accent: #FF6584;
+            --success: #4CAF50;
+            --warning: #FF9800;
+            --dark: #121212;
+            --darker: #0A0A0A;
+            --light: #F8F9FA;
+            --gray: #2D2D2D;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --gradient: linear-gradient(135deg, #6C63FF, #36D1DC);
         }
         * {
             margin: 0;
@@ -31,8 +31,8 @@
             min-height: 100vh;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.05) 0%, transparent 20%);
+                radial-gradient(circle at 20% 30%, rgba(108, 99, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(54, 209, 220, 0.1) 0%, transparent 20%);
         }
         .header {
             background: var(--darker);
@@ -41,10 +41,10 @@
             flex-direction: column;
             gap: 1rem;
             border-bottom: 1px solid var(--gray);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
         @media (min-width: 768px) {
             .header {
@@ -60,7 +60,9 @@
             gap: 12px;
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             justify-content: center;
         }
         @media (min-width: 768px) {
@@ -78,7 +80,6 @@
             border-radius: 12px;
             border: 1px solid var(--gray);
             width: 100%;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
         @media (min-width: 768px) {
             .stats {
@@ -95,7 +96,9 @@
         .stat-value {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             line-height: 1;
         }
         @media (min-width: 768px) {
@@ -105,7 +108,7 @@
         }
         .stat-label {
             font-size: 0.75rem;
-            color: #6B7280;
+            opacity: 0.8;
             margin-top: 0.25rem;
         }
         @media (min-width: 768px) {
@@ -122,6 +125,106 @@
             .container {
                 padding: 2rem;
             }
+        }
+        .start-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+        .start-screen.active {
+            display: flex;
+        }
+        .start-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid var(--gray);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+            .start-card {
+                padding: 3.5rem;
+            }
+        }
+        .start-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @media (min-width: 768px) {
+            .start-title {
+                font-size: 3.2rem;
+            }
+        }
+        .relevance-box {
+            background: rgba(108, 99, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary);
+            text-align: left;
+        }
+        .benefits-box {
+            background: rgba(54, 209, 220, 0.1);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--secondary);
+            text-align: left;
+        }
+        .box-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        .box-content {
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        .difficulty-selection {
+            margin: 2.5rem 0;
+        }
+        .difficulty-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .difficulty-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .difficulty-btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            background: var(--card-bg);
+            border: 2px solid var(--gray);
+            color: var(--light);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 140px;
+        }
+        .difficulty-btn:hover {
+            background: rgba(108, 99, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        .difficulty-btn.selected {
+            background: var(--gradient);
+            border-color: var(--primary);
+            color: white;
         }
         .scenario-container {
             display: none;
@@ -140,13 +243,15 @@
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             border: 1px solid var(--gray);
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         @media (min-width: 768px) {
             .scenario-card {
                 padding: 2.5rem;
                 border-radius: 24px;
                 margin-bottom: 2rem;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             }
         }
         .scenario-header {
@@ -178,16 +283,16 @@
             font-weight: 600;
             width: fit-content;
         }
-        .difficulty-easy { background: rgba(16, 185, 129, 0.1); color: #10B981; }
-        .difficulty-medium { background: rgba(245, 158, 11, 0.1); color: #F59E0B; }
-        .difficulty-hard { background: rgba(37, 99, 235, 0.1); color: #2563EB; }
+        .difficulty-easy { background: rgba(76, 175, 80, 0.2); color: #4CAF50; }
+        .difficulty-medium { background: rgba(255, 152, 0, 0.2); color: #FF9800; }
+        .difficulty-hard { background: rgba(255, 101, 132, 0.2); color: #FF6584; }
         .scenario-description {
             font-size: 1.1rem;
             line-height: 1.6;
-            color: #374151;
+            opacity: 0.95;
             margin-bottom: 1.5rem;
             padding: 1rem;
-            background: #F9FAFB;
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 12px;
             border-left: 3px solid var(--primary);
         }
@@ -213,7 +318,7 @@
             }
         }
         .option {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 0.05);
             border: 2px solid var(--gray);
             border-radius: 12px;
             padding: 1rem;
@@ -231,21 +336,21 @@
             }
         }
         .option:hover {
-            background: #EFF6FF;
+            background: rgba(108, 99, 255, 0.1);
             border-color: var(--primary);
             transform: translateY(-5px);
         }
         .option.selected {
-            background: #EFF6FF;
+            background: rgba(108, 99, 255, 0.15);
             border-color: var(--primary);
         }
         .option.correct {
-            background: rgba(16, 185, 129, 0.05);
+            background: rgba(76, 175, 80, 0.15);
             border-color: var(--success);
         }
         .option.incorrect {
-            background: rgba(239, 68, 68, 0.05);
-            border-color: #EF4444;
+            background: rgba(255, 101, 132, 0.15);
+            border-color: var(--accent);
         }
         .option-icon {
             font-size: 1.25rem;
@@ -253,7 +358,6 @@
             min-width: 24px;
             text-align: center;
             padding-top: 0.1rem;
-            color: var(--primary);
         }
         @media (min-width: 768px) {
             .option-icon {
@@ -264,7 +368,7 @@
         .option-content h4 {
             margin-bottom: 0.5rem;
             font-size: 1rem;
-            color: #111827;
+            color: var(--light);
         }
         @media (min-width: 768px) {
             .option-content h4 {
@@ -272,7 +376,7 @@
             }
         }
         .option-content p {
-            color: #6B7280;
+            opacity: 0.9;
             font-size: 0.9rem;
             line-height: 1.5;
         }
@@ -282,7 +386,7 @@
             }
         }
         .feedback-section {
-            background: #F9FAFB;
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 16px;
             padding: 1.5rem;
             margin-top: 1.5rem;
@@ -322,7 +426,6 @@
         .feedback-title {
             font-size: 1.25rem;
             font-weight: 600;
-            color: #111827;
         }
         @media (min-width: 768px) {
             .feedback-title {
@@ -330,11 +433,10 @@
             }
         }
         .consequences {
-            background: #FEF2F2;
+            background: rgba(0, 0, 0, 0.3);
             padding: 1rem;
             border-radius: 12px;
             margin-bottom: 1rem;
-            border-left: 3px solid #EF4444;
         }
         @media (min-width: 768px) {
             .consequences {
@@ -343,7 +445,7 @@
             }
         }
         .consequences h4 {
-            color: #DC2626;
+            color: var(--accent);
             margin-bottom: 0.8rem;
             font-size: 1rem;
         }
@@ -353,10 +455,10 @@
             }
         }
         .expert-advice {
-            background: #ECFDF5;
+            background: rgba(54, 209, 220, 0.1);
             padding: 1rem;
             border-radius: 12px;
-            border-left: 4px solid var(--success);
+            border-left: 4px solid var(--secondary);
         }
         @media (min-width: 768px) {
             .expert-advice {
@@ -364,7 +466,7 @@
             }
         }
         .expert-advice h4 {
-            color: var(--success);
+            color: var(--secondary);
             margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
@@ -416,15 +518,15 @@
         }
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
         }
         .btn-secondary {
-            background: white;
-            color: var(--primary);
+            background: var(--card-bg);
+            color: var(--light);
             border: 1px solid var(--gray);
         }
         .btn-secondary:hover {
-            background: #F3F4F6;
+            background: rgba(255, 255, 255, 0.1);
         }
         .progress-container {
             margin: 1.5rem 0;
@@ -436,7 +538,7 @@
         }
         .progress-bar {
             height: 6px;
-            background: #E5E7EB;
+            background: var(--gray);
             border-radius: 3px;
             overflow: hidden;
         }
@@ -456,7 +558,7 @@
             justify-content: space-between;
             margin-top: 0.5rem;
             font-size: 0.875rem;
-            color: #6B7280;
+            opacity: 0.8;
         }
         @media (min-width: 768px) {
             .progress-text {
@@ -481,7 +583,9 @@
         .results-icon {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         @media (min-width: 768px) {
             .results-icon {
@@ -492,7 +596,6 @@
         .results-title {
             font-size: 1.75rem;
             margin-bottom: 1rem;
-            color: #111827;
         }
         @media (min-width: 768px) {
             .results-title {
@@ -502,7 +605,9 @@
         .results-score {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin: 1rem 0;
         }
         @media (min-width: 768px) {
@@ -512,7 +617,7 @@
         }
         .results-feedback {
             font-size: 1.1rem;
-            color: #6B7280;
+            opacity: 0.9;
             margin-bottom: 1.5rem;
             line-height: 1.6;
         }
@@ -522,31 +627,18 @@
                 margin-bottom: 2rem;
             }
         }
-        .theory-section {
-            background: #F0F9FF;
-            border-radius: 16px;
-            padding: 1.5rem;
+        .retry-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
             margin-top: 2rem;
-            text-align: left;
-            border-left: 4px solid var(--primary);
-            display: none;
         }
-        .theory-section.show {
-            display: block;
-        }
-        .theory-section h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-        .theory-section ul {
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .theory-section li {
-            margin-bottom: 0.5rem;
-            line-height: 1.5;
-            color: #374151;
+        @media (min-width: 768px) {
+            .retry-buttons {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1.5rem;
+            }
         }
         .developer-info {
             text-align: center;
@@ -555,28 +647,28 @@
             margin-top: 2rem;
             border-top: 1px solid var(--gray);
             font-size: 0.9rem;
-            color: #6B7280;
+            opacity: 0.9;
         }
         .developer-info p {
             margin-bottom: 0.5rem;
         }
         .developer-info strong {
-            color: var(--primary);
+            color: var(--secondary);
         }
         .scenario-counter {
             text-align: center;
             font-size: 0.9rem;
-            color: #9CA3AF;
+            opacity: 0.7;
             margin-top: 0.5rem;
         }
         .hint {
-            background: #FFFBEB;
+            background: rgba(255, 152, 0, 0.1);
             padding: 0.75rem;
             border-radius: 8px;
             margin-top: 1rem;
             border-left: 3px solid var(--warning);
             font-size: 0.9rem;
-            color: #92400E;
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -603,17 +695,50 @@
     </div>
 
     <div class="container">
-        <div class="progress-container">
+        <div id="start-screen" class="start-screen active">
+            <div class="start-card">
+                <h1 class="start-title">Тренажёр "Цифровая репутация"</h1>
+                
+                <div class="relevance-box">
+                    <h3 class="box-title"><i class="fas fa-exclamation-circle"></i> Актуальность темы</h3>
+                    <p class="box-content">В современном цифровом мире репутация формируется не только в реальной жизни, но и в интернет-пространстве. Ваши действия в сети, публикации, комментарии и даже лайки создают цифровой след, который может повлиять на ваше будущее: поступление в вуз, трудоустройство, личные отношения.</p>
+                </div>
+                
+                <div class="benefits-box">
+                    <h3 class="box-title"><i class="fas fa-award"></i> Что даст прохождение тренажёра</h3>
+                    <p class="box-content">• Научитесь распознавать киберугрозы и мошеннические схемы<br>
+                    • Узнаете, как защитить личные данные в интернете<br>
+                    • Сформируете навыки безопасного онлайн-общения<br>
+                    • Поймёте, как управлять своей цифровой репутацией<br>
+                    • Получите практические навыки для защиты от кибербуллинга</p>
+                </div>
+                
+                <div class="difficulty-selection">
+                    <h3 class="difficulty-title">Выберите количество кейсов для прохождения:</h3>
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn" onclick="selectScenarioCount(10)">10 кейсов</button>
+                        <button class="difficulty-btn" onclick="selectScenarioCount(15)">15 кейсов</button>
+                        <button class="difficulty-btn" onclick="selectScenarioCount(25)">25 кейсов</button>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" onclick="startTraining()" id="start-btn" disabled>
+                    <i class="fas fa-play"></i> Начать тренажёр
+                </button>
+            </div>
+        </div>
+
+        <div class="progress-container" style="display: none;">
             <div class="progress-bar">
                 <div class="progress-fill" id="progress-fill"></div>
             </div>
             <div class="progress-text">
                 <span>Прогресс</span>
-                <span id="progress-text">1/25</span>
+                <span id="progress-text">1/50</span>
             </div>
         </div>
 
-        <div id="scenario-container" class="scenario-container active"></div>
+        <div id="scenario-container" class="scenario-container"></div>
 
         <div id="results" class="results-screen">
             <div class="results-icon">
@@ -623,23 +748,17 @@
             <div class="results-score" id="final-score">0</div>
             <p class="results-feedback" id="results-feedback"></p>
             
-            <div class="theory-section" id="theory-section">
-                <h3><i class="fas fa-book"></i> Основы цифровой безопасности</h3>
-                <p>Рекомендуем изучить ключевые правила для защиты вашей репутации и данных:</p>
-                <ul>
-                    <li><strong>Приватность данных:</strong> Никогда не публикуйте личную информацию (адрес, телефон, школа) в открытом доступе.</li>
-                    <li><strong>Надёжные пароли:</strong> Используйте уникальные сложные пароли для каждого аккаунта и двухфакторную аутентификацию.</li>
-                    <li><strong>Критическое мышление:</strong> Проверяйте информацию, не переходите по подозрительным ссылкам, остерегайтесь фишинга.</li>
-                    <li><strong>Уважение в сети:</strong> Не участвуйте в травле, уважайте мнение других, сообщайте о нарушениях модераторам.</li>
-                    <li><strong>Защита устройств:</strong> Устанавливайте обновления, используйте антивирусы, не подключайтесь к публичным Wi-Fi без VPN.</li>
-                    <li><strong>Осознанное использование:</strong> Ограничивайте время в сети, настраивайте приватность профилей, думайте перед публикацией.</li>
-                </ul>
-                <p>Помните: цифровой след остаётся навсегда. Будьте осторожны!</p>
+            <div class="retry-buttons">
+                <button class="btn btn-primary" onclick="restartTraining()">
+                    <i class="fas fa-sync-alt"></i> Пройти ещё раз
+                </button>
+                <button class="btn btn-secondary" onclick="showStartScreen()" id="retry-later-btn" style="display: none;">
+                    <i class="fas fa-clock"></i> Вернуться позже
+                </button>
+                <button class="btn btn-secondary" onclick="restartTraining()" id="try-again-btn" style="display: none;">
+                    <i class="fas fa-redo"></i> Попробовать ещё раз
+                </button>
             </div>
-            
-            <button class="btn btn-primary" onclick="restartTraining()" style="margin: 1rem auto;">
-                <i class="fas fa-sync-alt"></i> Пройти ещё раз
-            </button>
         </div>
     </div>
 
@@ -1357,9 +1476,33 @@
         let currentScenario = 1;
         let score = 0;
         let correctAnswers = 0;
-        const totalScenarios = scenarios.length;
+        let selectedScenariosCount = 10;
+        let totalScenarios = 10;
         let selectedOptionIndex = -1;
         let isAnswered = false;
+
+        function selectScenarioCount(count) {
+            selectedScenariosCount = count;
+            document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            event.target.classList.add('selected');
+            document.getElementById('start-btn').disabled = false;
+        }
+
+        function startTraining() {
+            totalScenarios = selectedScenariosCount;
+            document.getElementById('start-screen').classList.remove('active');
+            document.querySelector('.progress-container').style.display = 'block';
+            initScenario(1);
+        }
+
+        function showStartScreen() {
+            document.getElementById('results').classList.remove('active');
+            document.getElementById('start-screen').classList.add('active');
+            document.querySelector('.progress-container').style.display = 'none';
+            document.getElementById('scenario-container').classList.remove('active');
+        }
 
         function initScenario(num) {
             const scenario = scenarios[num - 1];
@@ -1509,20 +1652,29 @@
             document.querySelectorAll('.scenario-container').forEach(el => el.classList.remove('active'));
             document.getElementById('results').classList.add('active');
             
-            const finalScore = score;
-            document.getElementById('final-score').textContent = finalScore;
+            const maxScore = totalScenarios * 15;
+            const percentage = (score / maxScore) * 100;
+            
+            document.getElementById('final-score').textContent = score;
             
             let feedback = '';
-            if (finalScore >= 200) {
-                feedback = 'Отличный результат! Вы хорошо разбираетесь в вопросах цифровой безопасности.';
-            } else if (finalScore >= 150) {
-                feedback = 'Хороший результат! У вас есть базовые знания, но некоторые нюансы требуют внимания.';
+            if (percentage >= 85) {
+                feedback = 'Отличный результат! Вы отлично разбираетесь в вопросах цифровой безопасности и репутации.';
+            } else if (percentage >= 70) {
+                feedback = 'Хороший результат! У вас есть прочные знания, но некоторые моменты требуют дополнительного внимания.';
+            } else if (percentage >= 50) {
+                feedback = 'Средний результат. Рекомендуем повторить сложные темы и пройти тренажёр ещё раз.';
             } else {
-                feedback = 'Вам необходимо уделить больше внимания цифровой безопасности. Рекомендуем изучить теорию ниже и пройти тренажёр ещё раз.';
-                document.getElementById('theory-section').classList.add('show');
+                feedback = 'Вам необходимо уделить больше внимания цифровой безопасности. Рекомендуем пройти тренажёр повторно.';
             }
             
             document.getElementById('results-feedback').textContent = feedback;
+            
+            if (percentage < 50) {
+                document.getElementById('retry-later-btn').style.display = 'block';
+                document.getElementById('try-again-btn').style.display = 'block';
+            }
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1535,14 +1687,16 @@
             document.getElementById('current-scenario').textContent = '1';
             document.getElementById('correct-count').textContent = '0';
             document.getElementById('results').classList.remove('active');
-            document.getElementById('theory-section').classList.remove('show');
+            document.getElementById('retry-later-btn').style.display = 'none';
+            document.getElementById('try-again-btn').style.display = 'none';
             
-            initScenario(1);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('start-screen').classList.add('active');
+            document.querySelector('.progress-container').style.display = 'none';
+            document.getElementById('scenario-container').classList.remove('active');
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            initScenario(1);
+            document.querySelector('.difficulty-btn').classList.add('selected');
         });
 
         window.addEventListener('resize', function() {
