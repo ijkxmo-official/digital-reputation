@@ -751,6 +751,7 @@
                 <button class="btn btn-primary" onclick="startTraining()" id="start-btn" disabled>
                     <i class="fas fa-play"></i> Начать тренажёр
                 </button>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">Все кейсы основаны на реальных ситуациях и рекомендациях экспертов по цифровой безопасности. При каждом запуске порядок кейсов случайный.</p>
             </div>
         </div>
 
@@ -827,6 +828,7 @@
         <p>Разработчик: <strong>Орлова Полина Сергеевна</strong>, 9 "Б" класс</p>
         <p>Руководитель: <strong>Куценко Ирина Степановна</strong></p>
         <p>МОУ СОШ №9 им. В. Т. Степанченко</p>
+        <p style="font-size:0.8rem; margin-top:0.5rem;">* Кейсы разработаны на основе материалов "Лаборатории Касперского", "Центра цифровой экспертизы Роскачества" и рекомендаций Минцифры РФ.</p>
     </div>
 
     <script>
@@ -1390,6 +1392,146 @@
                     }
                 ],
                 difficulty: "hard"
+            },
+            {
+                id: 21,
+                description: "Ты получил сообщение от друга в соцсети с просьбой срочно занять 2000 рублей, так как у него заблокирована карта. Он просит перевести на номер телефона, который прилагается.",
+                options: [
+                    {
+                        text: "Перевести деньги, ведь друг в беде",
+                        description: "Надо помогать близким",
+                        correct: false,
+                        consequences: "Деньги уходят мошенникам, друг их не получает. Теряешь 2000 рублей и чувствуешь себя обманутым.",
+                        advice: "Всегда проверяйте такие просьбы по телефону или лично. Мошенники часто взламывают аккаунты и рассылают подобные сообщения."
+                    },
+                    {
+                        text: "Позвонить другу по телефону и уточнить",
+                        description: "Личный звонок прояснит ситуацию",
+                        correct: true,
+                        consequences: "Выясняется, что друг ничего не просил, его аккаунт взломали. Ты сохраняешь деньги и помогаешь другу восстановить доступ.",
+                        advice: "При любых финансовых просьбах в соцсетях всегда связывайся с человеком по телефону или при личной встрече."
+                    },
+                    {
+                        text: "Попросить доказательства: фото паспорта или видео",
+                        description: "Пусть подтвердит личность",
+                        correct: false,
+                        consequences: "Мошенник может прислать фейковые документы. Ты всё равно рискуешь перевести деньги, если поверишь.",
+                        advice: "Документы легко подделать. Единственный надёжный способ — связаться с другом напрямую."
+                    }
+                ],
+                difficulty: "medium"
+            },
+            {
+                id: 22,
+                description: "Ты хочешь подписаться на интересный канал в Telegram, но для доступа к контенту нужно отправить код из SMS, который придёт на твой номер.",
+                options: [
+                    {
+                        text: "Отправить код, это же для подписки",
+                        description: "Обычная процедура подтверждения",
+                        correct: false,
+                        consequences: "Код на самом деле используется для восстановления доступа к твоему аккаунту. Мошенники получают контроль над твоим Telegram.",
+                        advice: "Никогда не вводи коды из SMS на незнакомых сайтах. Это стандартная схема кражи аккаунтов."
+                    },
+                    {
+                        text: "Не отправлять, это мошенничество",
+                        description: "Коды нужны только для входа, не для подписки",
+                        correct: true,
+                        consequences: "Ты сохраняешь доступ к своему аккаунту. Канал скорее всего фейковый.",
+                        advice: "Настоящие каналы не запрашивают SMS-коды для подписки. Используй только официальные методы."
+                    },
+                    {
+                        text: "Попробовать другой канал с таким же контентом",
+                        description: "Найти легальный источник",
+                        correct: false,
+                        consequences: "Ты можешь наткнуться на другой мошеннический ресурс. Проблема не решена.",
+                        advice: "Лучше искать контент через проверенные источники и официальные каналы."
+                    }
+                ],
+                difficulty: "hard"
+            },
+            {
+                id: 23,
+                description: "На сайте знакомств тебе пишет симпатичный человек, предлагает продолжить общение в мессенджере, скидывает ссылку для скачивания приложения.",
+                options: [
+                    {
+                        text: "Перейти по ссылке, чтобы пообщаться",
+                        description: "Скорее начать общение",
+                        correct: false,
+                        consequences: "Ссылка ведёт на фишинговый сайт или устанавливает вредоносное ПО. Твои данные оказываются под угрозой.",
+                        advice: "Никогда не переходи по сомнительным ссылкам от незнакомцев. Предлагай использовать официальные магазины приложений."
+                    },
+                    {
+                        text: "Предложить общаться в другом, официальном мессенджере",
+                        description: "Например, в Telegram или WhatsApp через Play Market",
+                        correct: true,
+                        consequences: "Человек соглашается на безопасный вариант. Ты избегаешь риска заражения.",
+                        advice: "Всегда скачивай приложения только из официальных магазинов. Если собеседник отказывается — это мошенник."
+                    },
+                    {
+                        text: "Игнорировать и заблокировать",
+                        description: "Слишком подозрительно",
+                        correct: false,
+                        consequences: "Ты теряешь возможность нормального знакомства, хотя человек мог быть искренним, но неразборчивым.",
+                        advice: "Лучше вежливо объяснить, что ты не переходишь по ссылкам от незнакомцев, и предложить альтернативу."
+                    }
+                ],
+                difficulty: "medium"
+            },
+            {
+                id: 24,
+                description: "Твой одноклассник создал мем с твоей фотографией и выложил в общий чат. Тебе это неприятно.",
+                options: [
+                    {
+                        text: "Сделать вид, что всё равно",
+                        description: "Не показывать обиду",
+                        correct: false,
+                        consequences: "Одноклассник продолжит так шутить, потому что не видит реакции. Тебе становится ещё неприятнее.",
+                        advice: "Не молчи, если тебе что-то не нравится. Игнорирование проблемы редко её решает."
+                    },
+                    {
+                        text: "Написать ему лично и попросить удалить",
+                        description: "Объяснить свои чувства",
+                        correct: true,
+                        consequences: "Одноклассник извиняется и удаляет мем. Вы сохраняете нормальные отношения.",
+                        advice: "Личный разговор часто помогает решить конфликт без привлечения посторонних."
+                    },
+                    {
+                        text: "Ответить таким же мемом",
+                        description: "Проучить обидчика",
+                        correct: false,
+                        consequences: "Начинается перепалка, чат наполняется оскорблениями. Ситуация выходит из-под контроля.",
+                        advice: "Месть только разжигает конфликт. Лучше спокойно объяснить, что тебе неприятно."
+                    }
+                ],
+                difficulty: "easy"
+            },
+            {
+                id: 25,
+                description: "Ты хочешь удалить старый аккаунт в соцсети, но забыл пароль. Сайт предлагает восстановить доступ по номеру телефона, но ты уже не пользуешься тем номером.",
+                options: [
+                    {
+                        text: "Оставить как есть, аккаунт просто не используется",
+                        description: "Не тратить время на восстановление",
+                        correct: false,
+                        consequences: "Аккаунт могут взломать и использовать для спама от твоего имени. Твои старые фото остаются доступными.",
+                        advice: "Неиспользуемые аккаунты лучше удалять или деактивировать, чтобы не создавать рисков."
+                    },
+                    {
+                        text: "Обратиться в поддержку соцсети",
+                        description: "Попытаться удалить через службу поддержки",
+                        correct: true,
+                        consequences: "Поддержка помогает восстановить доступ или удаляет аккаунт после проверки. Аккаунт благополучно удалён.",
+                        advice: "В таких случаях официальная поддержка — единственный законный способ. Наберись терпения и следуй инструкциям."
+                    },
+                    {
+                        text: "Создать новый аккаунт и забыть о старом",
+                        description: "Начать с чистого листа",
+                        correct: false,
+                        consequences: "Старый аккаунт остаётся в сети, твои данные продолжают там висеть. Возможна утечка.",
+                        advice: "Лучше удалить старый аккаунт, даже если это требует усилий. Это важная часть цифровой гигиены."
+                    }
+                ],
+                difficulty: "medium"
             }
         ];
 
@@ -1400,6 +1542,7 @@
         let totalScenarios = 10;
         let selectedOptionIndex = -1;
         let isAnswered = false;
+        let currentScenarios = [];
 
         function selectScenarioCount(count) {
             selectedScenariosCount = count;
@@ -1410,12 +1553,29 @@
             document.getElementById('start-btn').disabled = false;
         }
 
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
         function startTraining() {
             totalScenarios = selectedScenariosCount;
+            const shuffled = shuffleArray([...scenarios]);
+            currentScenarios = shuffled.slice(0, selectedScenariosCount);
+            
             document.getElementById('start-screen').classList.remove('active');
             document.querySelector('.progress-container').style.display = 'block';
             document.querySelector('.relevance-box').style.display = 'none';
             document.querySelector('.benefits-box').style.display = 'none';
+            currentScenario = 1;
+            score = 0;
+            correctAnswers = 0;
+            document.getElementById('score').textContent = '0';
+            document.getElementById('current-scenario').textContent = '1';
+            document.getElementById('correct-count').textContent = '0';
             initScenario(1);
         }
 
@@ -1436,7 +1596,7 @@
         }
 
         function initScenario(num) {
-            const scenario = scenarios[num - 1];
+            const scenario = currentScenarios[num - 1];
             if (!scenario) return;
             
             selectedOptionIndex = -1;
@@ -1511,7 +1671,7 @@
         function selectOption(index, scenarioNum) {
             if (isAnswered) return;
             
-            const scenario = scenarios[scenarioNum - 1];
+            const scenario = currentScenarios[scenarioNum - 1];
             const option = scenario.options[index];
             const feedback = document.getElementById(`feedback-${scenarioNum}`);
             
@@ -1561,8 +1721,8 @@
         }
 
         function restartScenario() {
-            score -= scenarios[currentScenario - 1].difficulty === 'easy' ? 5 : 
-                     scenarios[currentScenario - 1].difficulty === 'medium' ? 10 : 15;
+            const scenario = currentScenarios[currentScenario - 1];
+            score -= scenario.difficulty === 'easy' ? 5 : scenario.difficulty === 'medium' ? 10 : 15;
             if (score < 0) score = 0;
             correctAnswers--;
             if (correctAnswers < 0) correctAnswers = 0;
